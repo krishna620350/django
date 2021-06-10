@@ -1,4 +1,4 @@
-"""hello URL Configuration
+"""textutil URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -14,17 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.views.static import serve
-from django.conf.urls import url
-from django.conf import settings
+from django.urls import path
+from . import views
 
-admin.site.site_header = "krishna ice-cream"
-admin.site.site_title = "krishna ice-cream portal"
-admin.site.index_title = "Welcome to krishna ice-cream Portal"
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include('home.urls')),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    path('', views.index, name='index'),
+    # path('about', views.about, name='about'),
+    # path('removepunk', views.removepunk, name='removepunk'),
+    # path('capataLize', views.capataLize, name='capataLize'),
+    # path('newlineRemover', views.newlineRemover, name='newlineRemover'),
+    # path('characterCount', views.characterCount, name='characterCount'),
+    # path('spaceRemover', views.spaceRemover, name='spaceRemover'),
+    path('analyses', views.analyses, name='analyses'),
 ]

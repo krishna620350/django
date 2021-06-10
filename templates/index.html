@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+</head>
+<body>
+    <h1>welcome to the text analyser.<br>Enter your details</h1>
+    <form action="/analyses" method="post"><!--method ="get" it passes a value in url bar-->
+        {% csrf_token %}
+        <textarea name="text" style="margin: 0px; width: 595px; height: 197px;"></textarea><br>
+        <input type="checkbox" name="removepunk">remove punchuation<br>
+        <input type="checkbox" name="fullcaps">capatlize<br>
+        <input type="checkbox" name="newline">\n<br>
+        <input type="checkbox" name="space">space remover<br>
+        <button type="submit">Analyse text</button>
+    </form>
+</body>
+</html>
